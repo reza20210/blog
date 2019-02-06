@@ -10,7 +10,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * This namespace is applied to your controller routes.
      *
-     * In addition, it is set as the URL generator's root namespace.
+     * In addition, it is set as the URL generator'avatars root namespace.
      *
      * @var string
      */
