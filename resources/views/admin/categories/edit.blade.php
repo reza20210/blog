@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success">Update post</button>
+                        <button type="submit" class="btn btn-success">Update category</button>
                     </div>
                 </div>
             </form>

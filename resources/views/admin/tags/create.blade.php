@@ -6,18 +6,18 @@
 
     <div class="card">
         <div class="card-header">
-            Create new category
+            Create new tag
         </div>
         <div class="card-body">
-            <form action="{{ route('category.store') }}" method="post">
+            <form action="{{ route('tag.store') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <label for="tag">Name</label>
+                    <input type="text" name="tag" class="form-control">
                 </div>
                 <div class="form-group">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success">Store category</button>
+                        <button type="submit" class="btn btn-success">Store tag</button>
                     </div>
                 </div>
             </form>
