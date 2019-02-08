@@ -17,6 +17,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset("css/toastr.min.css") }}" rel="stylesheet">
 
+    @yield('styles')
+
 </head>
 <body>
 <div id="app">
@@ -132,8 +134,8 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-<script src="{{ asset('js/toastr.min.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/toastr.min.js') }}"></script>
 
 <script>
     @if(session()->has('success'))
@@ -143,6 +145,8 @@
     toastr.info("{{ session()->get('info') }}");
     @endif
 </script>
+
+@yield('scripts')
 
 </body>
 </html>
