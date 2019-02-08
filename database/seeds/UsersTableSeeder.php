@@ -21,9 +21,9 @@ class UsersTableSeeder extends Seeder
         \App\Profile::create([
             'user_id' => $user->id,
             'avatar' => 'uploads/avatars/1.png',
-            'about' => 'sample text',
-            'facebook' => 'facebook.com',
-            'youtube' => 'youtube.com',
+            'about' => 'text',
+            'facebook' => 'https://www.facebook.com',
+            'youtube' => 'https://www.youtube.com',
         ]);
     }
 }
