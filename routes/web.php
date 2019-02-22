@@ -11,15 +11,49 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::post('/subscribe', function () {
+    $email = request('email');
+    Newsletter::subscribe($email);
+
+    session()->flash('subscribe', 'Successfully subscribed.');
+
+    return redirect()->back();
 });
+
+Route::get('/', [
+    'uses' => 'FrontEndController@index',
+    'as' => 'index'
+]);
+
+Route::get('/results', function () {
+    $posts = \App\Post::where('title', 'like', '%' . request('query') . '%')->get();
+    return view('results')
+        ->with('posts', $posts)
+        ->with('title', 'Search results : ' . request('query'))
+        ->with('categories', \App\Category::all()->take(5))
+        ->with('settings', \App\Setting::first());
+});
+
+Route::get('/post/{slug}', [
+    'uses' => 'FrontEndController@singlePost',
+    'as' => 'single.post'
+]);
+
+Route::get('/tag/{id}', [
+    'uses' => 'FrontEndController@tag',
+    'as' => 'single.tag'
+]);
+
+Route::get('/category/{id}', [
+    'uses' => 'FrontEndController@category',
+    'as' => 'single.category'
+]);
 
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('/home', [
+    Route::get('/dashboard', [
         'uses' => 'HomeController@index',
         'as' => 'home'
     ]);
@@ -179,7 +213,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'as' => 'settings.update'
     ]);
 });
-
-
-
-

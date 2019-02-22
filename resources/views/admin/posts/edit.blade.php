@@ -48,8 +48,11 @@
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea name="content" id="content" cols="5" rows="5"
-                              class="form-control">{{ $post->content }}</textarea>
+                    <textarea name="content" id="content" cols="6" rows="6" class="form-control">
+
+                        {{ $post->content }}
+
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <div class="text-center">
@@ -59,4 +62,19 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('styles')
+    <!-- include summernote css -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+    <!-- include summernote js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#content').summernote();
+        });
+    </script>
 @endsection
